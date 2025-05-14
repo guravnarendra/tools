@@ -1,1 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Compressor | Multi Tool Hub</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="../index.html" style="color: #FFD700; text-decoration: none;">Multi Tool Hub</a></h1>
+            <p class="tagline">Reduce image file size without losing quality</p>
+        </div>
+    </header>
 
+    <div class="ad-banner top-ad">
+        <div class="container">
+            <div class="ad-space">Advertisement Space</div>
+        </div>
+    </div>
+
+    <main class="container">
+        <div class="tool-container">
+            <div class="tool-header">
+                <h2>Image Compressor</h2>
+                <p>Optimize your images for web and mobile</p>
+            </div>
+
+            <div class="ad-banner middle-ad">
+                <div class="ad-space">Advertisement Space</div>
+            </div>
+
+            <div class="tool-content">
+                <div class="tool-section">
+                    <h3>Upload Image to Compress</h3>
+                    <div class="input-group">
+                        <label for="image-upload">Select image file (JPG, PNG, WEBP):</label>
+                        <input type="file" id="image-upload" accept="image/*">
+                    </div>
+                </div>
+
+                <div class="tool-section">
+                    <h3>Compression Settings</h3>
+                    <div class="input-group">
+                        <label for="compression-level">Compression Level:</label>
+                        <select id="compression-level">
+                            <option value="low">Low (Best Quality)</option>
+                            <option value="medium" selected>Medium (Recommended)</option>
+                            <option value="high">High (Smallest Size)</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="max-width">Max Width (pixels):</label>
+                        <input type="number" id="max-width" placeholder="Leave empty for original size">
+                    </div>
+                </div>
+
+                <div class="tool-actions">
+                    <button class="btn" id="compress-btn">Compress Image</button>
+                    <button class="btn" id="reset-btn">Reset</button>
+                </div>
+
+                <div class="results" id="results-section" style="display: none;">
+                    <h3>Compression Results</h3>
+                    <div id="comparison-container"></div>
+                    <div id="stats-container">
+                        <p><strong>Original Size:</strong> <span id="original-size">0 KB</span></p>
+                        <p><strong>Compressed Size:</strong> <span id="compressed-size">0 KB</span></p>
+                        <p><strong>Reduction:</strong> <span id="reduction-percent">0%</span></p>
+                    </div>
+                    <a href="#" class="btn" id="download-btn">Download Compressed Image</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="ad-banner bottom-ad">
+            <div class="ad-space">Advertisement Space</div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="../index.html">Home</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Contact</a>
+                </div>
+                <div class="ad-banner footer-ad">
+                    <div class="ad-space">Advertisement Space</div>
+                </div>
+                <p class="copyright">&copy; 2023 Multi Tool Hub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+    <script>
+        document.getElementById('compress-btn').addEventListener('click', function() {
+            // In a real implementation, this would compress the image
+            alert('Image compression would happen here in a real implementation');
+            
+            // Demo results
+            document.getElementById('original-size').textContent = '1024 KB';
+            document.getElementById('compressed-size').textContent = '256 KB';
+            document.getElementById('reduction-percent').textContent = '75%';
+            document.getElementById('results-section').style.display = 'block';
+        });
+
+        document.getElementById('reset-btn').addEventListener('click', function() {
+            document.getElementById('image-upload').value = '';
+            document.getElementById('compression-level').value = 'medium';
+            document.getElementById('max-width').value = '';
+            document.getElementById('results-section').style.display = 'none';
+        });
+    </script>
+</body>
+</html>
