@@ -1,1 +1,126 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Crop | Multi Tool Hub</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="../index.html" style="color: #FFD700; text-decoration: none;">Multi Tool Hub</a></h1>
+            <p class="tagline">Crop your images to perfect dimensions</p>
+        </div>
+    </header>
+
+    <div class="ad-banner top-ad">
+        <div class="container">
+            <div class="ad-space">Advertisement Space</div>
+        </div>
+    </div>
+
+    <main class="container">
+        <div class="tool-container">
+            <div class="tool-header">
+                <h2>Image Crop</h2>
+                <p>Adjust and crop your images to the perfect size</p>
+            </div>
+
+            <div class="ad-banner middle-ad">
+                <div class="ad-space">Advertisement Space</div>
+            </div>
+
+            <div class="tool-content">
+                <div class="tool-section">
+                    <h3>Upload Image to Crop</h3>
+                    <div class="input-group">
+                        <label for="image-upload">Select image file:</label>
+                        <input type="file" id="image-upload" accept="image/*">
+                    </div>
+                </div>
+
+                <div class="tool-section">
+                    <h3>Crop Options</h3>
+                    <div class="input-group">
+                        <label for="crop-aspect">Aspect Ratio:</label>
+                        <select id="crop-aspect">
+                            <option value="free">Free Form</option>
+                            <option value="1:1">Square (1:1)</option>
+                            <option value="4:3">Standard (4:3)</option>
+                            <option value="16:9">Widescreen (16:9)</option>
+                            <option value="9:16">Portrait (9:16)</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="crop-width">Width (px):</label>
+                        <input type="number" id="crop-width" placeholder="Enter width">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="crop-height">Height (px):</label>
+                        <input type="number" id="crop-height" placeholder="Enter height">
+                    </div>
+                </div>
+
+                <div class="tool-actions">
+                    <button class="btn" id="preview-btn">Preview Crop</button>
+                    <button class="btn" id="crop-btn">Crop Image</button>
+                    <button class="btn" id="reset-btn">Reset</button>
+                </div>
+
+                <div class="results" id="results-section" style="display: none;">
+                    <h3>Cropped Image</h3>
+                    <div id="crop-preview-container"></div>
+                    <a href="#" class="btn" id="download-btn">Download Cropped Image</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="ad-banner bottom-ad">
+            <div class="ad-space">Advertisement Space</div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="../index.html">Home</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Contact</a>
+                </div>
+                <div class="ad-banner footer-ad">
+                    <div class="ad-space">Advertisement Space</div>
+                </div>
+                <p class="copyright">&copy; 2023 Multi Tool Hub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+    <script>
+        document.getElementById('preview-btn').addEventListener('click', function() {
+            // In a real implementation, this would show a crop preview
+            alert('Crop preview would appear here in a real implementation');
+        });
+
+        document.getElementById('crop-btn').addEventListener('click', function() {
+            // In a real implementation, this would crop the image
+            alert('Image would be cropped here in a real implementation');
+            document.getElementById('results-section').style.display = 'block';
+        });
+
+        document.getElementById('reset-btn').addEventListener('click', function() {
+            document.getElementById('image-upload').value = '';
+            document.getElementById('crop-aspect').value = 'free';
+            document.getElementById('crop-width').value = '';
+            document.getElementById('crop-height').value = '';
+            document.getElementById('results-section').style.display = 'none';
+        });
+    </script>
+</body>
+</html>
