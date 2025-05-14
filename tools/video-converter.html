@@ -1,1 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Converter | Multi Tool Hub</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="../index.html" style="color: #FFD700; text-decoration: none;">Multi Tool Hub</a></h1>
+            <p class="tagline">Convert videos between different formats</p>
+        </div>
+    </header>
 
+    <div class="ad-banner top-ad">
+        <div class="container">
+            <div class="ad-space">Advertisement Space</div>
+        </div>
+    </div>
+
+    <main class="container">
+        <div class="tool-container">
+            <div class="tool-header">
+                <h2>Video Converter</h2>
+                <p>Transform your videos to any popular format</p>
+            </div>
+
+            <div class="ad-banner middle-ad">
+                <div class="ad-space">Advertisement Space</div>
+            </div>
+
+            <div class="tool-content">
+                <div class="tool-section">
+                    <h3>Upload Your Video</h3>
+                    <div class="input-group">
+                        <label for="video-upload">Select video file (MP4, AVI, MOV, etc.):</label>
+                        <input type="file" id="video-upload" accept="video/*">
+                    </div>
+                </div>
+
+                <div class="tool-section">
+                    <h3>Conversion Settings</h3>
+                    <div class="input-group">
+                        <label for="output-format">Output Format:</label>
+                        <select id="output-format">
+                            <option value="mp4">MP4 (H.264)</option>
+                            <option value="webm">WEBM</option>
+                            <option value="avi">AVI</option>
+                            <option value="mov">MOV</option>
+                            <option value="gif">Animated GIF</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="video-quality">Quality:</label>
+                        <select id="video-quality">
+                            <option value="high">High (Best Quality)</option>
+                            <option value="medium" selected>Medium (Recommended)</option>
+                            <option value="low">Low (Smallest Size)</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="resolution">Resolution:</label>
+                        <select id="resolution">
+                            <option value="original">Original</option>
+                            <option value="1080">1080p (Full HD)</option>
+                            <option value="720">720p (HD)</option>
+                            <option value="480">480p (SD)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="tool-actions">
+                    <button class="btn" id="convert-btn">Convert Video</button>
+                    <button class="btn" id="reset-btn">Reset</button>
+                </div>
+
+                <div class="results" id="results-section" style="display: none;">
+                    <h3>Conversion Complete</h3>
+                    <div id="video-preview-container"></div>
+                    <div id="conversion-stats">
+                        <p><strong>Original Format:</strong> <span id="original-format">MP4</span></p>
+                        <p><strong>Original Size:</strong> <span id="original-video-size">0 MB</span></p>
+                        <p><strong>Converted Size:</strong> <span id="converted-size">0 MB</span></p>
+                    </div>
+                    <a href="#" class="btn" id="download-btn">Download Converted Video</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="ad-banner bottom-ad">
+            <div class="ad-space">Advertisement Space</div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="../index.html">Home</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Contact</a>
+                </div>
+                <div class="ad-banner footer-ad">
+                    <div class="ad-space">Advertisement Space</div>
+                </div>
+                <p class="
