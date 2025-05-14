@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Converter | Multi Tool Hub</title>
+    <title>Age Calculator | Multi Tool Hub</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <header>
         <div class="container">
             <h1><a href="../index.html" style="color: #FFD700; text-decoration: none;">Multi Tool Hub</a></h1>
-            <p class="tagline">Convert images between different formats</p>
+            <p class="tagline">Calculate your exact age</p>
         </div>
     </header>
 
@@ -23,8 +23,8 @@
     <main class="container">
         <div class="tool-container">
             <div class="tool-header">
-                <h2>Image Converter</h2>
-                <p>Convert your images to various formats with ease</p>
+                <h2>Age Calculator</h2>
+                <p>Find out your exact age in years, months, and days</p>
             </div>
 
             <div class="ad-banner middle-ad">
@@ -33,42 +33,25 @@
 
             <div class="tool-content">
                 <div class="tool-section">
-                    <h3>Upload Your Image</h3>
+                    <h3>Enter Your Birth Date</h3>
                     <div class="input-group">
-                        <label for="image-upload">Select image file:</label>
-                        <input type="file" id="image-upload" accept="image/*">
-                    </div>
-                </div>
-
-                <div class="tool-section">
-                    <h3>Conversion Options</h3>
-                    <div class="input-group">
-                        <label for="output-format">Output Format:</label>
-                        <select id="output-format">
-                            <option value="jpg">JPEG</option>
-                            <option value="png">PNG</option>
-                            <option value="webp">WEBP</option>
-                            <option value="gif">GIF</option>
-                            <option value="bmp">BMP</option>
-                        </select>
-                    </div>
-
-                    <div class="input-group">
-                        <label for="quality">Quality (1-100):</label>
-                        <input type="range" id="quality" min="1" max="100" value="90">
-                        <span id="quality-value">90</span>
+                        <label for="birth-date">Date of Birth:</label>
+                        <input type="date" id="birth-date">
                     </div>
                 </div>
 
                 <div class="tool-actions">
-                    <button class="btn" id="convert-btn">Convert Image</button>
-                    <button class="btn" id="reset-btn">Reset</button>
+                    <button class="btn" id="calculate-btn">Calculate Age</button>
+                    <button class="btn" id="clear-btn">Clear</button>
                 </div>
 
                 <div class="results" id="results-section" style="display: none;">
-                    <h3>Conversion Results</h3>
-                    <div id="preview-container"></div>
-                    <a href="#" class="btn" id="download-btn">Download Converted Image</a>
+                    <h3>Your Age</h3>
+                    <div id="age-result">
+                        <p><strong>Years:</strong> <span id="years">0</span></p>
+                        <p><strong>Months:</strong> <span id="months">0</span></p>
+                        <p><strong>Days:</strong> <span id="days">0</span></p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -97,22 +80,37 @@
 
     <script src="../js/script.js"></script>
     <script>
-        // Tool-specific JavaScript
-        document.getElementById('quality').addEventListener('input', function() {
-            document.getElementById('quality-value').textContent = this.value;
-        });
-
-        document.getElementById('convert-btn').addEventListener('click', function() {
-            // In a real implementation, this would handle the image conversion
-            alert('Image conversion would happen here in a real implementation');
+        document.getElementById('calculate-btn').addEventListener('click', function() {
+            const birthDate = new Date(document.getElementById('birth-date').value);
+            const today = new Date();
+            
+            if (isNaN(birthDate.getTime())) {
+                alert('Please enter a valid date');
+                return;
+            }
+            
+            let years = today.getFullYear() - birthDate.getFullYear();
+            let months = today.getMonth() - birthDate.getMonth();
+            let days = today.getDate() - birthDate.getDate();
+            
+            if (days < 0) {
+                months--;
+                days += new Date(today.getFullYear(), today.getMonth(), 0).getDate();
+            }
+            
+            if (months < 0) {
+                years--;
+                months += 12;
+            }
+            
+            document.getElementById('years').textContent = years;
+            document.getElementById('months').textContent = months;
+            document.getElementById('days').textContent = days;
             document.getElementById('results-section').style.display = 'block';
         });
 
-        document.getElementById('reset-btn').addEventListener('click', function() {
-            document.getElementById('image-upload').value = '';
-            document.getElementById('output-format').value = 'jpg';
-            document.getElementById('quality').value = 90;
-            document.getElementById('quality-value').textContent = '90';
+        document.getElementById('clear-btn').addEventListener('click', function() {
+            document.getElementById('birth-date').value = '';
             document.getElementById('results-section').style.display = 'none';
         });
     </script>
