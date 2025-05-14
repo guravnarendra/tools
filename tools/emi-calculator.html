@@ -1,1 +1,164 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMI Calculator | Multi Tool Hub</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="../index.html" style="color: #FFD700; text-decoration: none;">Multi Tool Hub</a></h1>
+            <p class="tagline">Calculate your loan EMI payments</p>
+        </div>
+    </header>
+
+    <div class="ad-banner top-ad">
+        <div class="container">
+            <div class="ad-space">Advertisement Space</div>
+        </div>
+    </div>
+
+    <main class="container">
+        <div class="tool-container">
+            <div class="tool-header">
+                <h2>EMI Calculator</h2>
+                <p>Calculate your Equated Monthly Installments for loans</p>
+            </div>
+
+            <div class="ad-banner middle-ad">
+                <div class="ad-space">Advertisement Space</div>
+            </div>
+
+            <div class="tool-content">
+                <div class="tool-section">
+                    <h3>Loan Details</h3>
+                    <div class="input-group">
+                        <label for="loan-amount">Loan Amount (₹):</label>
+                        <input type="number" id="loan-amount" placeholder="Enter loan amount">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="interest-rate">Interest Rate (% p.a.):</label>
+                        <input type="number" step="0.01" id="interest-rate" placeholder="Enter interest rate">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="loan-tenure">Loan Tenure (months):</label>
+                        <input type="number" id="loan-tenure" placeholder="Enter tenure in months">
+                    </div>
+                </div>
+
+                <div class="tool-actions">
+                    <button class="btn" id="calculate-btn">Calculate EMI</button>
+                    <button class="btn" id="reset-btn">Reset</button>
+                </div>
+
+                <div class="results" id="results-section" style="display: none;">
+                    <h3>EMI Calculation Results</h3>
+                    <div id="emi-results">
+                        <p><strong>Monthly EMI:</strong> ₹<span id="emi-amount">0</span></p>
+                        <p><strong>Total Interest:</strong> ₹<span id="total-interest">0</span></p>
+                        <p><strong>Total Payment:</strong> ₹<span id="total-payment">0</span></p>
+                    </div>
+
+                    <div id="amortization-chart" style="margin-top: 20px;">
+                        <h4>Amortization Schedule</h4>
+                        <div style="overflow-x: auto;">
+                            <table style="width: 100%; border-collapse: collapse;">
+                                <thead>
+                                    <tr style="background-color: #2B2D42;">
+                                        <th style="padding: 8px; text-align: left;">Month</th>
+                                        <th style="padding: 8px; text-align: right;">Principal</th>
+                                        <th style="padding: 8px; text-align: right;">Interest</th>
+                                        <th style="padding: 8px; text-align: right;">Balance</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="amortization-body">
+                                    <!-- Amortization data will be inserted here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ad-banner bottom-ad">
+            <div class="ad-space">Advertisement Space</div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="../index.html">Home</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Contact</a>
+                </div>
+                <div class="ad-banner footer-ad">
+                    <div class="ad-space">Advertisement Space</div>
+                </div>
+                <p class="copyright">&copy; 2023 Multi Tool Hub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+    <script>
+        document.getElementById('calculate-btn').addEventListener('click', function() {
+            const amount = parseFloat(document.getElementById('loan-amount').value);
+            const rate = parseFloat(document.getElementById('interest-rate').value);
+            const tenure = parseInt(document.getElementById('loan-tenure').value);
+
+            if (isNaN(amount) || isNaN(rate) || isNaN(tenure)) {
+                alert('Please enter valid numbers for all fields');
+                return;
+            }
+
+            const monthlyRate = rate / 12 / 100;
+            const emi = amount * monthlyRate * Math.pow(1 + monthlyRate, tenure) / 
+                        (Math.pow(1 + monthlyRate, tenure) - 1);
+            const totalPayment = emi * tenure;
+            const totalInterest = totalPayment - amount;
+
+            document.getElementById('emi-amount').textContent = emi.toFixed(2);
+            document.getElementById('total-interest').textContent = totalInterest.toFixed(2);
+            document.getElementById('total-payment').textContent = totalPayment.toFixed(2);
+
+            // Generate amortization schedule
+            let balance = amount;
+            let amortizationHTML = '';
+            
+            for (let month = 1; month <= tenure; month++) {
+                const interest = balance * monthlyRate;
+                const principal = emi - interest;
+                balance -= principal;
+                
+                amortizationHTML += `
+                    <tr>
+                        <td style="padding: 8px; border-bottom: 1px solid #3A3D5B;">${month}</td>
+                        <td style="padding: 8px; text-align: right; border-bottom: 1px solid #3A3D5B;">₹${principal.toFixed(2)}</td>
+                        <td style="padding: 8px; text-align: right; border-bottom: 1px solid #3A3D5B;">₹${interest.toFixed(2)}</td>
+                        <td style="padding: 8px; text-align: right; border-bottom: 1px solid #3A3D5B;">₹${balance > 0 ? balance.toFixed(2) : '0.00'}</td>
+                    </tr>
+                `;
+            }
+            
+            document.getElementById('amortization-body').innerHTML = amortizationHTML;
+            document.getElementById('results-section').style.display = 'block';
+        });
+
+        document.getElementById('reset-btn').addEventListener('click', function() {
+            document.getElementById('loan-amount').value = '';
+            document.getElementById('interest-rate').value = '';
+            document.getElementById('loan-tenure').value = '';
+            document.getElementById('results-section').style.display = 'none';
+        });
+    </script>
+</body>
+</html>
