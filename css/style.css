@@ -1,0 +1,289 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #1E1E2F;
+    color: #EAEAEA;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Header Styles */
+header {
+    background-color: #2B2D42;
+    padding: 30px 0;
+    text-align: center;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    color: #FFD700;
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.tagline {
+    color: #AAAAAA;
+    font-size: 1.1rem;
+}
+
+/* Tools Intro */
+.tools-intro {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.tools-intro h2 {
+    color: #FFD700;
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+}
+
+/* Tools Grid */
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+/* Tool Card Styles */
+.tool-card {
+    background-color: #3A3D5B;
+    border-radius: 10px;
+    padding: 25px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(255, 215, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.tool-card:hover {
+    background-color: #FFD700;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(255, 215, 0, 0.3);
+}
+
+.tool-card:hover h2,
+.tool-card:hover p {
+    color: #1E1E2F;
+}
+
+.tool-card h2 {
+    color: #FFD700;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.tool-card p {
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+/* Button Styles */
+.btn {
+    display: inline-block;
+    background-color: #FFD700;
+    color: #1E1E2F;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    width: 100%;
+}
+
+.btn:hover {
+    background-color: #E6C200;
+}
+
+/* Advertisement Styles */
+.ad-banner {
+    background-color: #2B2D42;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 8px;
+}
+
+.ad-space {
+    background-color: #3A3D5B;
+    color: #AAAAAA;
+    padding: 30px;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px dashed #FFD700;
+}
+
+.top-ad {
+    margin-top: 20px;
+}
+
+.middle-ad {
+    margin: 30px 0;
+}
+
+.bottom-ad {
+    margin-bottom: 20px;
+}
+
+.horizontal-ad {
+    grid-column: 1 / -1;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #2B2D42;
+    padding: 30px 0 20px;
+    margin-top: 50px;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-links a {
+    color: #EAEAEA;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #FFD700;
+}
+
+.copyright {
+    text-align: center;
+    color: #AAAAAA;
+    font-size: 0.9rem;
+}
+
+.footer-ad {
+    margin: 15px 0;
+}
+
+/* Tool Page Specific Styles */
+.tool-container {
+    background-color: #3A3D5B;
+    border-radius: 10px;
+    padding: 30px;
+    margin: 30px 0;
+}
+
+.tool-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.tool-header h2 {
+    color: #FFD700;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.tool-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.tool-section {
+    background-color: #2B2D42;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.tool-section h3 {
+    color: #FFD700;
+    margin-bottom: 15px;
+}
+
+/* Form Elements */
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #EAEAEA;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #3A3D5B;
+    background-color: #1E1E2F;
+    color: #EAEAEA;
+}
+
+.tool-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Results Section */
+.results {
+    background-color: #2B2D42;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.results h3 {
+    color: #FFD700;
+    margin-bottom: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .tools-grid {
+        grid-template-columns: 1fr;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .tool-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .tool-actions {
+        flex-direction: column;
+    }
+}
